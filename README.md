@@ -37,13 +37,13 @@
 现在我们可以打开四个终端。
 
 ```
-ssh duck@140.123.179.50
+ssh duck@192.168.1.115
 ```
 
 **从主机 1**，
 
 ```
-docker swarm init --advertise-addr 140.123.179.50
+docker swarm init --advertise-addr 192.168.1.115
 docker swarm join-token manager
 ```
 
@@ -52,7 +52,7 @@ docker swarm join-token manager
 **从主机 2**
 
 ```
-<output from join-token manager> --advertise-addr 140.123.179.23
+<output from join-token manager> --advertise-addr 192.168.1.114
 ```
 
 **从主机 1，**
@@ -74,7 +74,7 @@ docker network ls
 #壓縮raft-4node-swarm資料夾
 tar -cf fabric-network.tar fabric-network/
 #解壓到指定裝置及路徑
-scp fabric-network.tar duck-2@140.123.179.23:/home/duck-2/
+scp fabric-network.tar duck-2@192.168.1.114:/home/duck-2/
 tar -xvf fabric-network.tar
 ```
 
